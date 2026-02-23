@@ -7,9 +7,3 @@ class Solution:
        
         return len(sub) == 2 ** k
         
-    #    good job it passed 
-    # do we can minimize three line?????
-    # okay 
-    # what about now????
-    # great thats is it..
-    # can i submit it ?

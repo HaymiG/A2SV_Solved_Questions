@@ -1,22 +1,15 @@
 t = int(input())
 for _ in range(t):
     n = int(input())
-    s = input()
-    ans = -1
+    s = input().strip()
 
-  
-    for i in range(n - 1):
-        sub = s[i:i+2]
-        if sub.count('a') > sub.count('b') and sub.count('a') > sub.count('c'):
-            ans = 2
-            break
-
-   
-    if ans == -1:
-        for i in range(n - 2):
-            sub = s[i:i+3]
-            if sub.count('a') > sub.count('b') and sub.count('a') > sub.count('c'):
-                ans = 3
-                break
-
-    print(ans)
+    if "aa" in s:
+        print(2)
+    elif "aba" in s or "aca" in s:
+        print(3)
+    elif "abca" in s or "acba" in s :
+        print(4)
+    elif "abbacca" in s or "accabba" in s :
+        print(7)
+    else:
+        print(-1)

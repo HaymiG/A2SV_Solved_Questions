@@ -12,3 +12,4 @@ class Solution:
                 score = val + max(2 * score , 1)
         return score
         
+        

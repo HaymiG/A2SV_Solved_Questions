@@ -2,7 +2,7 @@ class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         res = []
         if not digits :
-            return
+            return []
         dic={
             '2':'abc',
             '3':'def',
@@ -16,9 +16,10 @@ class Solution:
         def back(index , currstr):
             if len(currstr) == len(digits):
                 res.append(currstr)
+                return
             for ch in dic[digits[index]]:
-                currstr =currstr + ch
-                back(index + 1 , currstr)
-                currstr.pop()
+                
+                back(index + 1 , currstr + ch)
+                
         back(0 , "")
         return res

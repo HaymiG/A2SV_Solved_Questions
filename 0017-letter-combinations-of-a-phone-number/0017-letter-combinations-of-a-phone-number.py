@@ -1,7 +1,8 @@
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        if not digits:
-            return []
+        res = []
+        if not digits :
+            return
         dic={
             '2':'abc',
             '3':'def',
@@ -12,14 +13,12 @@ class Solution:
             '8':'tuv',
             '9':'wxyz'
         }
-        result=[]
-        def backtrack(subset,indx):
-            if len(digits)==indx:
-                result.append("".join(subset))
-                return
-            for ch in dic[digits[indx]]:
-                subset.append(ch)
-                backtrack(subset,indx+1)
-                subset.pop()
-        backtrack([],0)
-        return result
+        def back(index , currstr):
+            if len(currstr) == len(digits):
+                res.append(currstr)
+            for ch in dic[digits[index]]:
+                currstr =currstr + ch
+                back(index + 1 , currstr)
+                currstr.pop()
+        back(0 , "")
+        return res

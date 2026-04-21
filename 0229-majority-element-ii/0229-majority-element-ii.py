@@ -1,11 +1,11 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
+        n =len(nums)
+        least =  n // 3 
+        result = []
         count = Counter(nums)
-        res = []
-        n = len(nums) 
-        t = n//3
-        for k,v in count.items():
-            if v > t:
-                res.append(k)
-        return(res)
+        for val , fre in count.items():
+            if fre > least:
+                result.append(val)
+        return result
         

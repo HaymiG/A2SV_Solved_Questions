@@ -3,13 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        count=[0]*3
-        for num in nums:
-            count[num]+=1
-        index = 0
-        for color in range(3):
-            for i in range(count[color]):
-                nums[index] = color
-                index += 1
-        return nums
-                
+        start = 0
+        end = len(nums)-1
+        mid = 0 
+        while mid <= end:
+            if nums[mid] == 0:
+                nums[start], nums[mid] = nums[mid] , nums[start]  
+                start += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid +=1
+            elif nums[mid] == 2 :
+                nums[end], nums[mid] = nums[mid] , nums[end]  
+                end -= 1
+        return mid 
+
+

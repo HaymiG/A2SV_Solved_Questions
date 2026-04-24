@@ -11,8 +11,7 @@ class Solution:
         def dfs(graph , node , visited , destination):
             if node == destination :
                 return True
-            if node in visited :
-                return 
+            
             visited.add(node)
             for neb in graph[node]:
                 if neb not in visited :

@@ -1,30 +1,25 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        # using recursion 
         graph = defaultdict(list)
-        # visited = set()
+        visited = set()
+
         for u , v in edges:
             graph[u].append(v)
             graph[v].append(u)
-        stack = [source]
-        visited = set([source])
-        while stack :
-            node = stack.pop()
+        
+        def dfs(graph , node , visited , destination):
             if node == destination :
                 return True
+            if node in visited :
+                return 
+            visited.add(node)
             for neb in graph[node]:
-                if neb not in visited:
-                    stack.append(neb)
+                if neb not in visited :
                     visited.add(neb)
-        return False
+                    if dfs(graph , neb , visited ,destination):
+                        return True
+            return False 
+        return dfs(graph , source , visited , destination)
 
-        # def dfs(node , visited):
-        #     if node == destination :
-        #         return True
-        #     visited.add(node)
-        #     for neighbor in graph[node]:
-        #         if neighbor not in visited :
-        #             if dfs(neighbor , visited):
-        #                 return True
-        #     return False
-        # return dfs(source , visited)
-        
+            

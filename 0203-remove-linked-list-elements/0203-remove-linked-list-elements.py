@@ -7,10 +7,9 @@ class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         answer = ListNode( 0 , head)
         dummy = answer
-        while dummy:
+        while dummy :
             while dummy.next and dummy.next.val == val:
                 dummy.next = dummy.next.next
             dummy = dummy.next
-        
         return answer.next
         

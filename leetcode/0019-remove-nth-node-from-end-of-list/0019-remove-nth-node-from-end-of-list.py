@@ -5,23 +5,19 @@
 #         self.next = next
 class Solution(object):
     def removeNthFromEnd(self, head, n):
-        """
-        :type head: Optional[ListNode]
-        :type n: int
-        :rtype: Optional[ListNode]
-        """
-        if not head: #if the list is empty
-            return head 
-        a=b=head #making two pointers
-        for i in range(n): # getting b n pointers ahead
-            b=b.next
-        if not b: #if b reached the end of list that means n is first element to be deleted
-            return head.next #to delete we just skip the head and start from +1
-        while b.next: #stop the traversal at last elemen, so our a is 1 before to be deleted
-            a=a.next #traversing both pointers
-            b=b.next
-        a.next=a.next.next #a's next is to be deleted just skip it, make it it's next one
-        return head #return  the list
+        dummy = ListNode(0 , head)
+
+        slow = fast = dummy
+
+        for _ in range(n + 1):
+            fast = fast.next
+
+        while fast:
+            slow = slow.next
+            fast = fast.next
+
+        slow.next = slow.next.next
+        return dummy.next
 
         
         

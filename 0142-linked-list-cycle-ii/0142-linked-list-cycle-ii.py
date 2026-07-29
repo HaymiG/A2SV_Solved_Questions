@@ -12,13 +12,12 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
             if slow == fast:
-                #   there is a cycle  we have to find the cycle interance phace 2
-
+              
                 slow = head 
                 while slow != fast :
                     slow = slow.next 
                     fast = fast.next
-                return slow
+                return fast
         return None
                
        
